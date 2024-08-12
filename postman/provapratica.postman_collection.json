@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "fa1768dc-0158-4036-bfbb-2626c6b21a78",
+		"name": "provapratica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37199425"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/palestrantes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"palestrantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"leony\",\r\n    \"expertise\": \"natureza\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/palestrantes/cadastrarPalestrante",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"palestrantes",
+						"cadastrarPalestrante"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
