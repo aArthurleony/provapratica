@@ -7,48 +7,93 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/palestrantes",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"palestrantes"
-					]
+			"name": "palestrantes",
+			"item": [
+				{
+					"name": "/palestrantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/palestrantes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"palestrantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cadastrarPalestrante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"leony\",\r\n    \"expertise\": \"natureza\",\r\n    \"cpf\": \"127213328\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/palestrantes/cadastrarPalestrante",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"palestrantes",
+								"cadastrarPalestrante"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "New Request",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"leony\",\r\n    \"expertise\": \"natureza\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "EVENTOS",
+			"item": [
+				{
+					"name": "/eventos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{base_url}}/palestrantes/cadastrarPalestrante",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"palestrantes",
-						"cadastrarPalestrante"
-					]
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"a trança do rei careca\",\r\n  \"data_Evento\": \"2024-08-14\",\r\n  \"palestrante_id\": \"[bb3ca516-09a8-4f32-a803-b7a69568f142]\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/eventos/agenda",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"eventos",
+								"agenda"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

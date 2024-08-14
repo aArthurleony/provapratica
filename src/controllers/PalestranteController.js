@@ -1,6 +1,6 @@
 import conn from "../config/conn.js";
-// import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
+// import bcrypt from "bcrypt";
 
 // import jwt from "jsonwebtoken";
 
@@ -32,43 +32,39 @@ export const cadastrarPalestrante = (request, response) => {
     response.status(400).json({ message: "cpf é um campo obrigatório" });
     return;
   }
-  const checkCPF = /*sql*/ `SELECT * FROM palestrantes WHERE ?? = ?`;
-  const checkSQL = ["cpf", cpf];
-  conn.query(checkCPF, checkSQL, (err, data) => {
+  const checkSQL = /*sql*/ `SELECT * FROM palestrantes where ?? = ? `;
+
+  const checkSQLData = ["cpf", cpf];
+  conn.query(checkSQL, checkSQLData, (err, data) => {
     if (err) {
-      response.status(500).json({ message: "Erro ao cadastrar palestrante" });
+      response
+        .status(500)
+        .json({ message: "Erro ao verificar existencia de palestrante" });
       return console.error(err);
     }
     if (data.length > 0) {
-      return response
-        .status(404)
-        .json({ message: "Este palestrante ja existe" });
-    }
-  });
-  conn.query((err, data) => {
-    if (err) {
-      response.status(500).json({ message: "Erro ao buscar palestrantes" });
+      response.status(409).json({ message: "Palestrante já cadastrado" });
       return console.log(err);
     }
-    const id = uuidv4()
-    const postsql = /*sql*/ `INSERT INTO palestrantes(??,??,??,??) VALUES (?,?,?,?)`;
-    const insertData = [
+    const palestrante_id = uuidv4();
+
+    const insertSQL = /*sql*/ `insert into palestrantes(??,??,??,??)values(?,?,?,?)`;
+    const insertSQLdata = [
       "palestrante_id",
       "nome",
       "expertise",
       "cpf",
-      id,
+      palestrante_id,
       nome,
       expertise,
       cpf,
     ];
-    conn.query(postsql, insertData, (err) => {
+    conn.query(insertSQL, insertSQLdata, (err) => {
       if (err) {
-        console.log(err);
-        response.status(500).json({ message: "Erro ao cadastrar palestrante" });
-        return;
+        response.status(500).json({ message: "erro ao cadastrar palestrante" });
+        return console.log(err);
       }
-      response.status(201).json({ message: "Palestrante cadastrado com sucesso" });
+      response.status(201).json({message: "palestrante cadastrado"})
     });
   });
 };

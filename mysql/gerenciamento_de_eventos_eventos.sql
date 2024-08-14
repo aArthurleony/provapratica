@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `palestrantes`
+-- Table structure for table `eventos`
 --
 
-DROP TABLE IF EXISTS `palestrantes`;
+DROP TABLE IF EXISTS `eventos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `palestrantes` (
-  `palestrante_id` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `expertise` varchar(255) NOT NULL,
-  `cpf` varchar(60) NOT NULL,
-  PRIMARY KEY (`palestrante_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `eventos` (
+  `evento_id` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(255) NOT NULL,
+  `data_Evento` date NOT NULL,
+  `palestrante_id` varchar(60) NOT NULL,
+  PRIMARY KEY (`evento_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `palestrantes`
+-- Dumping data for table `eventos`
 --
 
-LOCK TABLES `palestrantes` WRITE;
-/*!40000 ALTER TABLE `palestrantes` DISABLE KEYS */;
-INSERT INTO `palestrantes` VALUES ('bb3ca516-09a8-4f32-a803-b7a69568f142','leony','natureza','12252038'),('c0c530ed-6440-46ef-a015-fd8e11599200','leony','natureza','127213328');
-/*!40000 ALTER TABLE `palestrantes` ENABLE KEYS */;
+LOCK TABLES `eventos` WRITE;
+/*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
+INSERT INTO `eventos` VALUES (1,'a trança do rei careca','2024-08-14',''),(2,'a trança do rei careca','2024-08-14',''),(3,'a trança do rei careca','2024-08-14','[bb3ca516-09a8-4f32-a803-b7a69568f142]'),(4,'a trança do rei careca','2024-08-14','[bb3ca516-09a8-4f32-a803-b7a69568f142]');
+/*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
