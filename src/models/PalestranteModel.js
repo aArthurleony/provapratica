@@ -2,7 +2,7 @@ import conn from "../config/conn.js";
 
 const tablePalestrante = /*sql*/ `
     CREATE TABLE IF NOT EXISTS palestrantes(
-        palestrante_id INT auto_increment PRIMARY KEY,
+        palestrante_id varchar(200)PRIMARY KEY,
         nome varchar(255) not null,
         expertise varchar(255)not null,
         cpf varchar(60) not null

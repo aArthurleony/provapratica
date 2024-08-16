@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "fa1768dc-0158-4036-bfbb-2626c6b21a78",
+		"name": "provapratica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37199425"
+	},
+	"item": [
+		{
+			"name": "palestrantes",
+			"item": [
+				{
+					"name": "/palestrantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/palestrantes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"palestrantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cadastrarPalestrante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"leony\",\r\n    \"expertise\": \"natureza\",\r\n    \"cpf\": \"127213328\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/palestrantes/cadastrarPalestrante",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"palestrantes",
+								"cadastrarPalestrante"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EVENTOS",
+			"item": [
+				{
+					"name": "/eventos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrar evento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"a trança do rei careca\",\r\n  \"data_Evento\": \"2024-08-14\",\r\n  \"palestrante_id\": \"[bb3ca516-09a8-4f32-a803-b7a69568f142]\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/eventos/agenda",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"eventos",
+								"agenda"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feedbacks",
+			"item": [
+				{
+					"name": "cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nota\": \"10\",\r\n  \"comentario\": \"tá ótimo\",\r\n  \"evento_id\": \"2\",\r\n  \"participante_id\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/evento/feedback",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"evento",
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inscricoes",
+			"item": []
+		}
+	]
+}

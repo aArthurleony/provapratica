@@ -28,11 +28,9 @@ export const cadastrarEvento = (request, response) => {
   conn.query(checkSQLPalestrante, checkSQLpalestranteData, (err) => {
     if (err) {
       console.error(err);
-      response
-        .status(500)
-        .json({
-          message: "erro ao verificar se já existe um palestrante cadastrado",
-        });
+      response.status(500).json({
+        message: "erro ao verificar se já existe um palestrante cadastrado",
+      });
       return;
     }
     const insertSQL = /*sql*/ `insert into Eventos(??,??,??)values(?,?,?)`;
@@ -52,4 +50,21 @@ export const cadastrarEvento = (request, response) => {
       response.status(200).json({ message: "evento cadastrado" });
     });
   });
+};
+export const deletarEvento = (request, response) => {
+  const { evento_id } = request.body;
+  const deleteSQL = /*sql*/`delete from eventos where ?? = ?`
+
+  const checkId = ["evento_id", evento_id]
+  conn.query(deleteSQL, checkId, (err, info)=>{
+    if(err){
+      response.status(500).json({message: "erro ao deletar evento"})
+      return console.error(err)
+    }
+    if(info.affectedRows == 0){
+      response.status(404).json({message: "erro ao deletar o evento"})
+      return console.log(evento_id)
+    }
+    response.status(204).json({message: "evento deletado"})
+  })
 };
